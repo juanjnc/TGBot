@@ -40,6 +40,7 @@ def main():
     dispatcher.add_handler(CommandHandler('dakka', gifs.dakka))
     dispatcher.add_handler(CommandHandler('mimimi', gifs.mimimi))
     dispatcher.add_handler(CommandHandler('s', otters.serio))
+    dispatcher.add_handler(CommandHandler('angryupvote', otters.angryupvote))
     dispatcher.add_handler(CommandHandler('noc', pics.nocombat))
     dispatcher.add_handler(CommandHandler('noh', pics.nohorny))
     dispatcher.add_handler(CommandHandler('ruleta', otters.rusa))

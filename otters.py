@@ -50,3 +50,11 @@ def kill(update: Update, context: CallbackContext):
     context.bot.restrictChatMember(chat_id=update.message.chat_id, user_id=user.id, until_date=time,
                                    permissions=ban_chat_permissions)
     context.bot.send_message(chat_id=update.effective_chat.id, text="Se hizo la automorición!")
+
+
+def angryupvote(update: Update, context: CallbackContext):
+    """Indica que te gusta pero no debería"""
+    user = update.effective_user
+    context.bot.deleteMessage(chat_id=update.message.chat_id, message_id=update.message.message_id)
+    context.bot.send_message(chat_id=update.effective_chat.id, parse_mode='MarkdownV2',
+                             text=f"A {user.mention_markdown_v2()} le gusta, pero no debería")
