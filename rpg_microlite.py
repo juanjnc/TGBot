@@ -61,7 +61,7 @@ micro_monster(hd)'''
 def bestiary_microlite(update: Update, context: CallbackContext) -> None:
     user = update.effective_user
     try:
-        hd = int(update.message.text.replace('/micromonster', '').replace('@ShurkunMK2Bot', ''))
+        hd = int(update.message.text.replace('/micromonster', '').replace('@YOUR_BOT', ''))
         if hd > 0:
             monster = micro_monster(hd=hd)
             context.bot.sendChatAction(chat_id=update.message.chat_id, action=ChatAction.TYPING, timeout=15)

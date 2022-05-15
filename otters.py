@@ -55,7 +55,7 @@ def angryupvote(update: Update, context: CallbackContext):
 def password(update: Update, context: CallbackContext):
     """Crea una contraseña de manera básica"""
     try:
-        length = int(update.message.text.replace('/password', '').replace('@ShurkunMK2Bot', ''))
+        length = int(update.message.text.replace('/password', '').replace('@YOUR_BOT', ''))
         context.bot.sendChatAction(chat_id=update.message.chat_id, action=ChatAction.TYPING, timeout=10)
         if length <= 0:
             update.message.reply_text(text='Me tomas por tonto?')
