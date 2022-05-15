@@ -1,3 +1,5 @@
+from string import ascii_letters, digits, punctuation
+from telegram import ChatPermissions
 
 love_list = (
     'CAACAgEAAxkBAAEDsbxh400-FwQKuD6rauHJkUu7C-wu1wACNAEAAjVJ5hCYXilIvbYSAyME',
@@ -11,35 +13,39 @@ love_list = (
     'CAACAgIAAxkBAAEDso5h5DQj5h5ugVVBSqtg3PlcRVaUVAACogADNvEDD_zP1D_MV85zIwQ',
     'CAACAgIAAxkBAAEDspBh5DQvtc8dkyy3fFvT7IeijsUlhAACtAADNvEDD__nhpQhEOy7IwQ',
     'CAACAgIAAxkBAAEDspJh5DQ_ppDlRnbWhrAYFl300UDE8AACugADNvEDDz1OHtdjlbb_IwQ',
-    'CAACAgIAAxkBAAEDspRh5DRISRXQ3DeZ3ZpdikwUib-UjwAC4wADNvEDD55IksOi6TnnIwQ'
+    'CAACAgIAAxkBAAEDspRh5DRISRXQ3DeZ3ZpdikwUib-UjwAC4wADNvEDD55IksOi6TnnIwQ',
 )
 
 rpg_list = [
     '13th Age', '7mo Mar', 'Advanced D&D', 'Agon 2ed', 'Alien RPG', 'Anima', 'Apocalypse World', 'Aquelarre',
-    'Ars Magica', 'Aventuras en la Marca del Este', 'BESM 4e', 'Band of Blades', 'Basic RolePlaying', 'Blacksad',
-    'Blades in the Dark', 'Bubblegumshoe', 'Burning Wheel', 'Call of Cthulhu 7a', 'Cepheus Deluxe', 'Cepheus Engine',
-    'Cepheus Lite', 'Chronicles of Darkness', 'City of Mist', 'Coriolis', 'Cortex Prime', 'Crónicas de la Marca',
-    'Cthulhu Confidential', 'CyberPunk RED', 'Cypher System', 'D&D BX', 'D&D Rules Cyclopedia', 'Dark Dungeons X',
-    'Deadlands', 'Delta Green', 'Dogs in the Vineyard', 'Dune RPG', 'Dungeon Crawl Classic', 'Dungeon World',
-    'Dungeons and Dragons 5e', 'Eclipse Phase', 'ZWEIHANDER Grim & Perilous RPG', 'Elder Scroll RPG', 'FATAL', 'FATE',
-    'Fallout RPG', 'Fellowship', 'Fen Shui 2', 'Fiasco', 'Final Fantasy RPG', 'For Gold & Glory', 'Forbidden Lands',
-    'Fragged Empire', 'Genesys', 'HARP', 'HYPERBOREA 3e', 'Hack the Planet', 'Hitos', 'Hombre Lobo', 'Index Card RPG',
-    'Ironsworn', 'Kids on Bikes', 'King Arthur Pendragon', 'Knave', 'Kult', 'Lamentations of the Flame Princess',
-    'Lancer RPG', 'Level Up: Advanced 5th Edition', 'Leyenda de los 5 Anillos', 'MASK A new generation', 'MERP',
-    'Magissa', 'Mago', 'Maho Shoujo', 'Microlite20', 'Mothership', 'Mutant Year Zero', 'Mythras', 'Mörk Borg',
-    'Numenera', 'OSRIC', 'Old School Essentials', 'Paranoia', 'Pathfinder 2e', 'Pequeños Detectives de Monstruos',
-    'Princess The Hopeful', 'QuestWorlds', 'RoleMaster', 'RuneQuest', 'Ryuutama', 'SCION', 'Savage Pathfinder',
-    'Savage Worlds Adventure Edition SWADE', 'Shadows of the Demon Lord', 'Star Trek Adventures', 'Starfinder',
-    'Stars Without Numbers: Revised', 'Swords & Wizardry', 'Symbaroum', 'Tales from the Loop', 'The Black Hack',
-    'The One Ring', 'The Witcher', 'Tiny Dungeon 2e', 'Trail of Cthulhu', 'Traveller', 'Trudvang Chronicles',
-    'Unknown Armies', 'Vampiro', 'Warhammer 40k Black Crusade', 'Warhammer 40k Dark Heresy', 'Warhammer 40k Deathwatch',
-    'Warhammer 40k Only War', 'Warhammer 40k Rogue Trader', 'Warhammer Age of Sigmar', 'Warhammer Fantasy 4e',
-    'Withehack 3e', 'World Of Darkness', 'Worlds Without Number', 'OpenQuest'
+    'Ars Magica', 'Aventuras en la Marca del Este', 'Aventuras en la Tierra Media', 'BESM 4e', 'Band of Blades',
+    'Basic RolePlaying', 'Blacksad', 'Blades in the Dark', 'Bubblegumshoe', 'Burning Empires', 'Burning Wheel Gold',
+    'Call of Cthulhu 7a', 'Cepheus Deluxe', 'Cepheus Engine', 'Cepheus Lite', 'Chronicles of Darkness', 'City of Mist',
+    'Coriolis', 'Cortex Prime', 'Crónicas de la Marca', 'Cthulhu Confidential', 'CyberPunk RED', 'Cypher System',
+    'D&D BX', 'D&D Rules Cyclopedia', 'Dark Dungeons X', 'Deadlands', 'Delta Green', 'Dogs in the Vineyard', 'Dune RPG',
+    'Dungeon Crawl Classic', 'Dungeon World', 'Dungeons and Dragons 5e', 'Eclipse Phase', 'El Resurgir del Dragón',
+    'Elder Scroll RPG', 'FATAL', 'FATE', 'Fallout RPG', 'Fellowship', 'Fen Shui 2', 'Fiasco', 'Final Fantasy RPG',
+    'For Gold & Glory', 'Forbidden Lands', 'Fragged Empire', 'Genesys', 'HARP', 'HYPERBOREA 3e', 'Hack the Planet',
+    'Hitos', 'Hombre Lobo', 'Index Card RPG', 'Ironsworn', 'Kamigakari: God Hunters', 'Kids on Bikes',
+    'King Arthur Pendragon', 'Knave', 'Kult', 'Lamentations of the Flame Princess', 'Lancer RPG',
+    'Level Up: Advanced 5th Edition', 'Leyenda de los 5 Anillos', 'LightMaster', 'MASK A new generation', 'MERP',
+    'Magissa', 'Mago', 'Maho Shoujo', 'Microlite20', 'Mongoose Traveller 2', 'Mothership', 'Mutant Year Zero',
+    'Mythras', 'Mörk Borg', 'Numenera', 'OSRIC', 'OVA: The Anime Role-Playing Game', 'Old School Essentials',
+    'Omega Fantasy 2', 'OpenQuest', 'Paranoia', 'Pathfinder 2e', 'Pequeños Detectives de Monstruos',
+    'Princess The Hopeful', 'PunkApocalyptic', 'QuestWorlds', 'RoleMaster', 'RuneQuest', 'Ryuutama',
+    'SCION', 'Savage Pathfinder', 'Savage Worlds Adventure Edition SWADE', 'Scum & Villainy',
+    'Shadows of the Demon Lord', 'Star Trek Adventures', 'Starfinder', 'Stars Without Numbers: Revised', 'Sword World',
+    'Swords & Wizardry', 'Symbaroum', 'Tales from the Loop', 'Tenra Bansho Zero', 'The Black Hack', 'The One Ring',
+    'The Witcher', 'Tiny Dungeon 2e', 'Torchbearer 2e', 'Trail of Cthulhu', 'Traveller 5', 'Trudvang Chronicles',
+    'Unknown Armies', 'Vampiro', 'Walhalla', 'Warhammer 40k Black Crusade', 'Warhammer 40k Dark Heresy',
+    'Warhammer 40k Deathwatch', 'Warhammer 40k Only War', 'Warhammer 40k Rogue Trader', 'Warhammer Age of Sigmar',
+    'Warhammer Fantasy 4e', 'Withehack 3e', 'World Of Darkness', 'Worlds Without Number',
+    'ZWEIHANDER Grim & Perilous RPG', 'Zelda: Reclaim The Wild'
 ]
 
 razas_erdd = [
     'Araina', 'Batrok Anuro', 'Batrok Puro', 'Centauro', 'Chamaleon', 'Dracónido', 'Elfo Banjora',
-    'Elfo Bastarre "Alto"', 'Elfo Menkarre', 'Elfo  Indeveri', 'Enano de las Colinas', 'Enano Duergar', 'Felínido',
+    'Elfo Bastarre \(Alto\)', 'Elfo Menkarre', 'Elfo  Indeveri', 'Enano de las Colinas', 'Enano Duergar', 'Felínido',
     'Fórmigo', 'Gnoll', 'Gnomo de las Rocas', 'Gnomo Svirfneblin', 'Hipótido', 'Humano', 'Humano del pueblo Mopán',
     'Humano del pueblo Shabaudi', 'Humano del pueblo Aluno', 'Humano del pueblo Luano', 'Karasu', 'Kitsune',
     'Mediano Piesligeros', 'Mediano Ribereño', 'Mida', 'Morlock', 'Orco Negro', 'Orco del Bosque de Ambar', 'Quelonio',
@@ -121,7 +127,7 @@ trasfondos_erdd = [
     'Habitante de Vajra', 'Indómito', 'Marinero fluvial', 'Miembro de una tribu', 'Noble de las Cien Casas', 'Nómada',
     'Pirata', 'Prisionero de Vajra', 'Servidor de la Hegemonía de Hierro', 'Guardabosques', 'Guardián de la Oscuridad',
     'Recluta de Khoumhazar', 'Ciudadano Miriense', 'Cazador de bestias', 'Nómada del Bosque de Ámbar',
-    'Caudillo de guerra "Variante de: De buena familia"', 'Discípulo del Peregrino "Variante de: Acólito"'
+    'Caudillo de guerra "Variante de: De buena familia"', 'Discípulo del Peregrino \(Variante de: Acólito\)'
 ]
 
 razas_13th_age = [
@@ -140,3 +146,22 @@ iconos_13th_age = [
     'el Príncipe de las Sombras', 'la Reina Elfa', 'el Rey Enano', 'el Rey Exánime', 'la Sacerdotisa', 'el Señor Orco',
     'los Tres Grandes Dragones'
 ]
+
+characters = ascii_letters + digits + punctuation
+
+
+ban_chat_permissions = ChatPermissions(
+    can_send_messages=False,
+    can_send_media_messages=False,
+    can_send_other_messages=False,
+    can_send_polls=False,
+    can_add_web_page_previews=False,
+)
+
+un_ban_chat_permissions = ChatPermissions(
+    can_send_messages=True,
+    can_send_media_messages=True,
+    can_send_other_messages=True,
+    can_send_polls=True,
+    can_add_web_page_previews=True,
+)
