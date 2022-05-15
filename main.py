@@ -11,6 +11,7 @@ import rpg_pj
 import rpg_others
 import spam
 import sticky
+from rpg_microlite import bestiary_microlite
 
 logging.basicConfig(format='%(asctime)s - %(name)s - %(levelname)s - %(message)s', level=logging.INFO)
 logger = logging.getLogger(__name__)
@@ -32,6 +33,7 @@ def main():
     dispatcher.add_handler(CommandHandler('pj13thage', rpg_pj.pj13thage))
     dispatcher.add_handler(CommandHandler('roll', rpg_others.roll))
     dispatcher.add_handler(CommandHandler('jdr', rpg_others.recomendar_rpg))
+    dispatcher.add_handler(CommandHandler('micromonster', bestiary_microlite))
     dispatcher.add_handler(CommandHandler('crisu', gifs.pug))
     dispatcher.add_handler(CommandHandler('nada', gifs.nada))
     dispatcher.add_handler(CommandHandler('freakout', gifs.freakout))
@@ -45,6 +47,7 @@ def main():
     dispatcher.add_handler(CommandHandler('noh', pics.nohorny))
     dispatcher.add_handler(CommandHandler('ruleta', otters.rusa))
     dispatcher.add_handler(CommandHandler('kill', otters.kill))
+    dispatcher.add_handler(CommandHandler('password', otters.password))
     dispatcher.add_handler(CommandHandler('love', sticky.love))
     # Siempre al final
     dispatcher.add_handler(MessageHandler(Filters.command, control.unknown))
